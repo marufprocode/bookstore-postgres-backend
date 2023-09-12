@@ -46,7 +46,7 @@ const signIn = async (data: {
 
   const tokenData = {
     role: user.role,
-    userId: user.id,
+    id: user.id,
   }
 
   const token = generateJWT_Token(
