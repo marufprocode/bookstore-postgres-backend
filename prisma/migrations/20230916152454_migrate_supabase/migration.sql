@@ -7,7 +7,7 @@ CREATE TABLE "User" (
     "role" TEXT NOT NULL,
     "contactNo" TEXT NOT NULL,
     "address" TEXT NOT NULL,
-    "profileImage" TEXT NOT NULL,
+    "profileImg" TEXT NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -27,7 +27,7 @@ CREATE TABLE "Book" (
     "author" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "genre" TEXT NOT NULL,
-    "publicationDate" TIMESTAMP(3) NOT NULL,
+    "publicationDate" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "categoryId" TEXT NOT NULL,
 

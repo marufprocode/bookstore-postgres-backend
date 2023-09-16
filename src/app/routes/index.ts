@@ -22,7 +22,7 @@ const moduleRoutes = [
     route: categoryRoutes,
   },
   {
-    path: '/order',
+    path: '/orders',
     route: orderRoutes,
   },
   {
