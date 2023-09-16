@@ -16,18 +16,57 @@ exports.orderService = void 0;
 const prisma_1 = __importDefault(require("../../../shared/prisma"));
 const createOrder = (orderData) => __awaiter(void 0, void 0, void 0, function* () {
     const newOrder = yield prisma_1.default.order.create({
-        data: orderData,
+        data: {
+            userId: orderData.userId,
+            status: 'pending',
+            orderedBooks: {
+                create: orderData.orderedBooks.map(book => ({
+                    book: {
+                        connect: { id: book.bookId },
+                    },
+                    quantity: book.quantity,
+                })),
+            },
+        },
+        include: {
+            orderedBooks: true,
+        },
     });
     return newOrder;
 });
-const getAllOrders = () => __awaiter(void 0, void 0, void 0, function* () {
-    const orders = yield prisma_1.default.order.findMany();
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getAllOrders = (conditions) => __awaiter(void 0, void 0, void 0, function* () {
+    const orders = yield prisma_1.default.order.findMany(conditions);
     return orders;
 });
-const getOrderById = (orderId, userId) => __awaiter(void 0, void 0, void 0, function* () {
-    const order = yield prisma_1.default.order.findUnique({
-        where: { id: orderId, userId: userId },
-    });
+const getOrderById = (orderId, userId, userRole) => __awaiter(void 0, void 0, void 0, function* () {
+    let order = null;
+    if (userRole === 'customer') {
+        order = yield prisma_1.default.order.findUnique({
+            where: { id: orderId, userId: userId },
+            include: {
+                orderedBooks: {
+                    select: {
+                        bookId: true,
+                        quantity: true,
+                    },
+                },
+            },
+        });
+    }
+    else if (userRole === 'admin') {
+        order = yield prisma_1.default.order.findUnique({
+            where: { id: orderId },
+            include: {
+                orderedBooks: {
+                    select: {
+                        bookId: true,
+                        quantity: true,
+                    },
+                },
+            },
+        });
+    }
     return order;
 });
 exports.orderService = {

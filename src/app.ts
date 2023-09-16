@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1', routes);
 
-app.use((req, res) => {
+app.get('/', async (req: Request, res: Response) => {
   res.send('Wellcome to prisma book shop !');
 });
 

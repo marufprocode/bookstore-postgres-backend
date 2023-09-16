@@ -20,6 +20,9 @@ const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const createBook = (bookData) => __awaiter(void 0, void 0, void 0, function* () {
     const newBook = yield prisma_1.default.book.create({
         data: bookData,
+        include: {
+            category: true, // Include the associated category
+        },
     });
     return newBook;
 });

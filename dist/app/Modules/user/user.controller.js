@@ -131,7 +131,7 @@ const getUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function*
         (0, sendResponse_1.default)(res, {
             statusCode: http_status_1.default.UNAUTHORIZED,
             success: false,
-            message: 'Unauthorized. User not authenticated.',
+            message: 'Unauthorized! User not authenticated.',
         });
         return;
     }
@@ -141,7 +141,7 @@ const getUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, function*
         (0, sendResponse_1.default)(res, {
             statusCode: http_status_1.default.OK,
             success: true,
-            message: 'User profile retrieved successfully',
+            message: 'User profile fetched successfully',
             data: userProfile,
         });
     }
@@ -159,5 +159,5 @@ exports.userController = {
     getUserById,
     updateUserById,
     deleteUser,
-    getUserProfile
+    getUserProfile,
 };

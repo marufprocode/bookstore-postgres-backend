@@ -44,7 +44,7 @@ const getUserProfile = (userId) => __awaiter(void 0, void 0, void 0, function* (
             role: true,
             contactNo: true,
             address: true,
-            profileImage: true,
+            profileImg: true,
         },
     });
     return user;
