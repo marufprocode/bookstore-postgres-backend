@@ -1,6 +1,6 @@
 type IOptions = {
-  page?: number;
-  size?: number;
+  page?: string;
+  size?: string;
   sortBy?: string;
   sortOrder?: 'asc' | 'desc';
 };

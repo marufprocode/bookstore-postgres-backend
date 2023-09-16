@@ -34,7 +34,7 @@ const getAllBooks = async (req: Request, res: Response, next: NextFunction) => {
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'Books with associated category data fetched successfully.',
+      message: 'Books with associated category data fetched successfully',
       meta: {
         page: options.page,
         size: options.limit,
@@ -55,7 +55,7 @@ const getBooksByCategory = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Books with associated category data fetched successfully.',
+    message: 'Books with associated category data fetched successfully',
     data: books,
   });
 });
@@ -67,7 +67,7 @@ const getBookById = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book fetched successfully.',
+    message: 'Book fetched successfully',
     data: book,
   });
 });
@@ -91,7 +91,7 @@ const deleteBook = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book is deleted successfully.',
+    message: 'Book is deleted successfully',
     data: deletedBook,
   });
 });

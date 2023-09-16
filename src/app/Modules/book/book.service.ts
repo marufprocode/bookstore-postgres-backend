@@ -2,9 +2,8 @@ import httpStatus from 'http-status'
 import ApiError from '../../../errors/ApiError'
 import prisma from '../../../shared/prisma'
 import { Book } from '@prisma/client'
-import { IPaginationOptions } from '../../../interfaces/pagination'
-import { paginationHelpers } from '../../../helpers/paginationHelper'
 import { IBookFilterRequest } from './book.interface'
+import { IPaginationOptions } from '../../../interfaces/pagination'
 
 const createBook = async (bookData: Book): Promise<Book> => {
   const newBook = await prisma.book.create({
@@ -23,7 +22,7 @@ const getAllBooks = async (
   meta: { total: number; page: number; limit: number }
   data: Book[]
 }> => {
-  const { limit, page, skip } = paginationHelpers.calculatePagination(options)
+  const { limit, page, skip } = options
 
   const { searchTerm, category, sortBy, sortOrder, minPrice, maxPrice } =
     filters

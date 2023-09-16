@@ -5,5 +5,6 @@ export type IBookFilterRequest = {
     sortOrder?: 'asc' | 'desc' | undefined;
     minPrice?: number | undefined;
     maxPrice?: number | undefined;
+    search?:string | undefined;
   };
   
