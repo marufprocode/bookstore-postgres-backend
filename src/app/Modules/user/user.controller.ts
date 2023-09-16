@@ -117,7 +117,7 @@ const getUserProfile = async (req: Request, res: Response) => {
     sendResponse(res, {
       statusCode: httpStatus.UNAUTHORIZED,
       success: false,
-      message: 'Unauthorized. User not authenticated.',
+      message: 'Unauthorized! User not authenticated.',
     })
     return
   }
@@ -130,7 +130,7 @@ const getUserProfile = async (req: Request, res: Response) => {
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'User profile retrieved successfully',
+      message: 'User profile fetched successfully',
       data: userProfile,
     })
   } else {
