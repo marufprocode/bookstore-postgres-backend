@@ -56,7 +56,7 @@ const getAllOrders = catchAsync(async (req: Request, res: Response) => {
 const getOrderById = catchAsync(async (req: Request, res: Response) => {
   const { orderId } = req.params
   if (!req.user) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate !')
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Unauthorized!')
   }
   const userId = req.user.id;
   const userRole = req.user.role;
