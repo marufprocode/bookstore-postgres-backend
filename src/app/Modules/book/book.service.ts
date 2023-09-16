@@ -2,9 +2,9 @@ import httpStatus from 'http-status'
 import ApiError from '../../../errors/ApiError'
 import prisma from '../../../shared/prisma'
 import { Book } from '@prisma/client'
+import { IPaginationOptions } from '../../../interfaces/pagination'
 import { paginationHelpers } from '../../../helpers/paginationHelper'
 import { IBookFilterRequest } from './book.interface'
-import { IPaginationOptions } from '../../../interfaces/pagination'
 
 const createBook = async (bookData: Book): Promise<Book> => {
   const newBook = await prisma.book.create({
