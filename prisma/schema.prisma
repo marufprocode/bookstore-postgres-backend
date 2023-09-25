@@ -35,7 +35,7 @@ model Book {
   publicationDate String
   createdAt       DateTime          @default(now())
   categoryId      String
-  category        Category          @relation(fields: [categoryId], references: [id])
+  category        Category          @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   reviewAndRating ReviewAndRating[]
   OrderedBook     OrderedBook[]
 }
@@ -64,6 +64,6 @@ model Order {
   userId       String
   status       String        @default("pending")
   createdAt    DateTime      @default(now())
-  user         User          @relation(fields: [userId], references: [id])
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   orderedBooks OrderedBook[]
 }
