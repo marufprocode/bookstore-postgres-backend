@@ -1,8 +1,9 @@
-# Prisma Bookstore Assignment API
+# Prisma Bookstore Backend Application
 
-This is the documentation for the Prisma Bookstore Assignment API. Below, you will find a list of available routes along with their descriptions.
+This is the documentation for the Prisma Bookstore Backend Application. Below, you will find a list of available routes along with their descriptions.
 
-**Live Link:** [https://prisma-bookstore-assignment.vercel.app/](https://prisma-bookstore-assignment.vercel.app/)
+## Live Link: https://bookstore-postgres-backend.vercel.app/
+
 
 ## User Routes
 - Route: `api/v1/auth/signup` (POST)

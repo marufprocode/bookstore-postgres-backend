@@ -16,7 +16,6 @@ exports.bookService = void 0;
 const http_status_1 = __importDefault(require("http-status"));
 const ApiError_1 = __importDefault(require("../../../errors/ApiError"));
 const prisma_1 = __importDefault(require("../../../shared/prisma"));
-const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const createBook = (bookData) => __awaiter(void 0, void 0, void 0, function* () {
     const newBook = yield prisma_1.default.book.create({
         data: bookData,
@@ -27,7 +26,7 @@ const createBook = (bookData) => __awaiter(void 0, void 0, void 0, function* () 
     return newBook;
 });
 const getAllBooks = (filters, options) => __awaiter(void 0, void 0, void 0, function* () {
-    const { limit, page, skip } = paginationHelper_1.paginationHelpers.calculatePagination(options);
+    const { limit, page, skip } = options;
     const { searchTerm, category, sortBy, sortOrder, minPrice, maxPrice } = filters;
     const whereConditions = {};
     if (searchTerm) {
